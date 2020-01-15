@@ -175,7 +175,11 @@ module.exports = (args) => {
       }
 
       // WRITE OUT FILE HERE
-      fs.writeFileSync(iosPath, plist.build(iosInfo));
+      fs.writeFileSync(iosPath, plist.build(iosInfo, {
+        indent: '\t',
+        offset: -1,
+        newline: '\n'
+      }));
     } catch(err) {
       Log.fatal(`iOS plist file '${iosPath}' error: ${err}`);
     }
