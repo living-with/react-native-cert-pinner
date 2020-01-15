@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-var plist = require('plist');
-
+const plist = require('plist');
 const Log = require('../Log');
 
 const andHead = 
@@ -64,7 +63,7 @@ module.exports = (args) => {
   let iosInfo = {};
   if (iosExists) {
     const iosXcodeprojs = fs.readdirSync(iosBase).filter(fn => fn.endsWith('.xcodeproj'));
-    if (iosXcodeprojs.length != 1) {
+    if (iosXcodeprojs.length !== 1) {
       Log.fatal('Cannot find unique *.xcodeproj in ${iosBase)');
     }
     iosPath = iosBase + '/' + path.basename(iosXcodeprojs[0], '.xcodeproj') + '/Info.plist';
