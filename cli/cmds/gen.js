@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const plist = require('plist');
 const Log = require('../Log');
+const mkdirp = require('mkdirp')
 
 const andHead = 
 `package com.criticalblue.reactnative;
@@ -43,7 +44,9 @@ module.exports = (args) => {
     Log.warn(`Android project not found: ${andBase}`);
   }
 
-  const andPath = `${andBase}/app/src/main/java/com/criticalblue/reactnative/GeneratedCertificatePinner.java`;
+  const andGeneratedJavaFileDirectory = `${andBase}/app/src/main/java/com/criticalblue/reactnative`
+  mkdirp.sync(andGeneratedJavaFileDirectory)
+  const andPath = `${andGeneratedJavaFileDirectory}/GeneratedCertificatePinner.java`;
 
   // prep ios project path
   
