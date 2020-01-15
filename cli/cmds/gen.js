@@ -67,7 +67,7 @@ module.exports = (args) => {
     if (iosXcodeprojs.length != 1) {
       Log.fatal('Cannot find unique *.xcodeproj in ${iosBase)');
     }
-    iosPath = iosBase + '/' + path.basename(iosXcodeprojs[0], '.xcodeproj') + '/info.plist';
+    iosPath = iosBase + '/' + path.basename(iosXcodeprojs[0], '.xcodeproj') + '/Info.plist';
     if (!fs.existsSync(iosPath)) {
       Log.fatal(`Missing iOS plist file: ${iosPath}`);
     }
