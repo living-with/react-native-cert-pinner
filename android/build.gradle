@@ -68,11 +68,15 @@ repositories {
     }
     google()
     jcenter()
+    maven { url 'https://maven.fabric.io/public' }
 }
 
 dependencies {
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'  // From node_modules
+    compile('com.crashlytics.sdk.android:crashlytics:2.10.1@aar') {
+        transitive = true;
+    }
 }
 
 def configureReactNativePom(def pom) {

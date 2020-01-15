@@ -1,9 +1,16 @@
 package com.criticalblue.reactnative;
 
+import com.crashlytics.android.Crashlytics;
 import com.facebook.react.modules.network.OkHttpClientFactory;
 import com.facebook.react.modules.network.OkHttpClientProvider;
 
+import java.io.IOException;
+
+import javax.net.ssl.SSLPeerUnverifiedException;
+
+import okhttp3.Call;
 import okhttp3.CertificatePinner;
+import okhttp3.EventListener;
 import okhttp3.OkHttpClient;
 
 public class PinnedClientFactory implements OkHttpClientFactory {
@@ -19,8 +26,16 @@ public class PinnedClientFactory implements OkHttpClientFactory {
 
         if (certificatePinner != null) {
             client.certificatePinner(certificatePinner);
+            client.eventListener(new EventListener() {
+                @Override
+                public void callFailed(Call call, IOException ioe) {
+                    if (ioe instanceof SSLPeerUnverifiedException) {
+                        Crashlytics.logException(ioe);
+                    }
+                }
+            });
         }
-        
+
         return client.build();
     }
 }
