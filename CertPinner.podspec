@@ -21,4 +21,6 @@ Pod::Spec.new do |s|
 
   s.dependency "React"
   s.dependency "TrustKit"
+  s.dependency "Fabric"
+  s.dependency "Crashlytics"
 end
