@@ -1,8 +1,8 @@
 package com.criticalblue.reactnative;
 
-import com.crashlytics.android.Crashlytics;
 import com.facebook.react.modules.network.OkHttpClientFactory;
 import com.facebook.react.modules.network.OkHttpClientProvider;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import java.io.IOException;
 
@@ -30,7 +30,7 @@ public class PinnedClientFactory implements OkHttpClientFactory {
                 @Override
                 public void callFailed(Call call, IOException ioe) {
                     if (ioe instanceof SSLPeerUnverifiedException) {
-                        Crashlytics.logException(ioe);
+                        FirebaseCrashlytics.getInstance().recordException(ioe);
                     }
                 }
             });

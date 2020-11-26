@@ -4,7 +4,7 @@
 #import <TrustKit/reporting_utils.h>
 
 @import TrustKit;
-@import Crashlytics;
+#import <FirebaseCrashlytics/FIRCrashlytics.h>
 
 @implementation CertPinner
 
@@ -56,7 +56,7 @@ static TSKSPKIHashCache *spkiHashCache;
                     @"Peer certificate PEMs:": result.certificateChain
             };
             NSError *error = [NSError errorWithDomain:@"PinningValidationError" code:-1001 userInfo:userInfo];
-            [[Crashlytics sharedInstance] recordError:error];
+            [[FIRCrashlytics crashlytics] recordError:error];
         }
     }];
 
