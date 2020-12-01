@@ -2,9 +2,9 @@
 #import "CertPinner.h"
 #import <TrustKit/TSKSPKIHashCache.h>
 #import <TrustKit/reporting_utils.h>
+#import <Sentry/SentrySDK.h>
 
 @import TrustKit;
-@import Sentry;
 
 @implementation CertPinner
 
