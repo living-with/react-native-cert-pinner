@@ -4,7 +4,7 @@
 #import <TrustKit/reporting_utils.h>
 
 @import TrustKit;
-#import <FirebaseCrashlytics/FIRCrashlytics.h>
+@import Sentry;
 
 @implementation CertPinner
 
@@ -56,7 +56,7 @@ static TSKSPKIHashCache *spkiHashCache;
                     @"Peer certificate PEMs:": result.certificateChain
             };
             NSError *error = [NSError errorWithDomain:@"PinningValidationError" code:-1001 userInfo:userInfo];
-            [[FIRCrashlytics crashlytics] recordError:error];
+            [SentrySDK captureError:error];
         }
     }];
 

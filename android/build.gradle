@@ -53,6 +53,10 @@ android {
     lintOptions {
         abortOnError false
     }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
 }
 
 repositories {
@@ -73,7 +77,7 @@ repositories {
 dependencies {
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'  // From node_modules
-    implementation 'com.google.firebase:firebase-crashlytics:17.3.0'
+    implementation 'io.sentry:sentry-android:3.1.0'
 }
 
 def configureReactNativePom(def pom) {
