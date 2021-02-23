@@ -77,7 +77,7 @@ repositories {
 dependencies {
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'  // From node_modules
-    implementation 'io.sentry:sentry-android:3.1.0'
+    implementation 'io.sentry:sentry-android:4.+'
 }
 
 def configureReactNativePom(def pom) {
