@@ -21,5 +21,5 @@ Pod::Spec.new do |s|
 
   s.dependency "React"
   s.dependency "TrustKit"
-  s.dependency "Sentry", "7.21.0"
+  s.dependency "Sentry", "7.22.0"
 end
