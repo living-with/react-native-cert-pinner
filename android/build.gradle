@@ -73,5 +73,5 @@ repositories {
 dependencies {
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'  // From node_modules
-    implementation 'io.sentry:sentry-android:6.28.0'
+    implementation 'io.sentry:sentry-android:[6.34.0, 7)'
 }
